@@ -13,8 +13,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 //create call api func
 function call_api(finishedAPI, ticker){
-request('https://cloud.iexapis.com/stable/stock/' + ticker +
-'/quote?token=pk_282b874bcdb44f14b9917cb4312d42f5', {json:true}, (err, res, body) => {
+request('https://cloud.iexapis.com/stable/stock/'+ticker+'/quote?token=pk_282b874bcdb44f14b9917cb4312d42f5', {json:true}, (err, res, body) => {
     if(err){return console.log(err);}
     if (res.statusCode===200){
         //console.log(body);
@@ -34,7 +33,7 @@ app.get('/', function (req, res){
             res.render('home', {
             stock: doneAPI,
         });
-    }, 'fb');
+    }, 'tsla');
 });
 //set handlebar index POST route
 app.post('/', function (req, res) {
